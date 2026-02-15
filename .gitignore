@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+instance/
+.pytest_cache/
+.env
+perfumes.db
+venv/
+.DS_Store

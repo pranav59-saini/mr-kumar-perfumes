@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Kumar | Exclusive Fragrances</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="{{ url_for('index') }}" class="brand-logo">Mr. <span>Kumar</span></a>
+            <nav>
+                <a href="{{ url_for('index') }}">Collection</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('dashboard') }}">My Account</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('register') }}">Join Us</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://videos.pexels.com/video-files/4770487/4770487-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h2>Essence of Royalty</h2>
+            <p>Handcrafted fragrances for the distinguished gentleman.</p>
+            <button class="btn" onclick="window.location.href='#collection'">Explore Collection</button>
+        </div>
+    </div>
+
+    <main id="collection">
+        <h2 class="section-title">The Masterpiece Collection</h2>
+        <div class="perfume-grid">
+            <!-- start perfume -->
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='vanilla_sky.png') }}" alt="Mr. Kumar Vanilla Sky">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Vanilla Sky</h3>
+                    <p class="description">A warm, ethereal blend of creamy vanilla and sunset-inspired notes.</p>
+                    <span class="price">$145.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='midnight_rose.png') }}" alt="Mr. Kumar Midnight Rose">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Midnight Rose</h3>
+                    <p class="description">A sophisticated, deep floral scent with mysterious dark rose petals.</p>
+                    <span class="price">$160.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='ocean_breeze.png') }}" alt="Mr. Kumar Ocean Breeze">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Ocean Breeze</h3>
+                    <p class="description">A refreshing coastal escape with notes of sea salt and crisp air.</p>
+                    <span class="price">$130.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='oud_wood.png') }}" alt="Mr. Kumar Oud Wood">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Oud Wood</h3>
+                    <p class="description">A rare, exotic blend of smoky oud, sandalwood, and spices.</p>
+                    <span class="price">$185.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='amber_noir.png') }}" alt="Amber Noir">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Amber Noir</h3>
+                    <p class="description">A dark, resinous amber blend with hints of sweet vanilla and musk.</p>
+                    <span class="price">$155.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='royal_safforn.png') }}" alt="Royal Saffron">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Royal Saffron</h3>
+                    <p class="description">Opulent golden saffron paired with soft leather and rose.</p>
+                    <span class="price">$210.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='valvent_iris.png') }}" alt="Velvet Iris">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Velvet Iris</h3>
+                    <p class="description">Powdery elegance featuring Tuscan iris and crushed violet leaves.</p>
+                    <span class="price">$175.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='citrus_neroli.png') }}" alt="Citrus Neroli">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Citrus Neroli</h3>
+                    <p class="description">Sparkling Italian bergamot and neroli flower for a sunny glow.</p>
+                    <span class="price">$135.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='spiced_tabacco.png') }}" alt="Spiced Tobacco">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Spiced Tobacco</h3>
+                    <p class="description">Warm tobacco leaf infused with ginger, cocoa, and dried fruits.</p>
+                    <span class="price">$180.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='white_patchouli.png') }}" alt="White Patchouli">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>White Patchouli</h3>
+                    <p class="description">A modern bohemian scent with clean white flowers and patchouli.</p>
+                    <span class="price">$145.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='leather&dust.png') }}" alt="Leather & Dust">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Leather & Dust</h3>
+                    <p class="description">Raw leather accords softened by jasmine and black suede.</p>
+                    <span class="price">$195.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='sacred_sandalwood.png') }}" alt="Sacred Sandalwood">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Sacred Sandalwood</h3>
+                    <p class="description">Creamy Mysore sandalwood enriched with cinnamon and ylang-ylang.</p>
+                    <span class="price">$165.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='scarelt_cherry.png') }}" alt="Scarlet Cherry">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Scarlet Cherry</h3>
+                    <p class="description">Luscious black cherry liqueur with a touch of bitter almond.</p>
+                    <span class="price">$185.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='forest_rain.png') }}" alt="Forest Rain">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Forest Rain</h3>
+                    <p class="description">Earthy vetiver and wet moss capturing the scent of rain in woods.</p>
+                    <span class="price">$140.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='golden_honey.png') }}" alt="Golden Honey">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Golden Honey</h3>
+                    <p class="description">Sweet honeycomb nectar drizzled over summer wildflowers.</p>
+                    <span class="price">$150.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='black_orchid.png') }}" alt="Black Orchid">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Black Orchid</h3>
+                    <p class="description">A luxurious, dark floral potion with black truffle and plum.</p>
+                    <span class="price">$170.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='island_coconut.png') }}" alt="Island Coconut">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Island Coconut</h3>
+                    <p class="description">Solar tuberose and warm coconut milk for a tropical paradise.</p>
+                    <span class="price">$130.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='imprial_musk.png') }}" alt="Imperial Musk">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Imperial Musk</h3>
+                    <p class="description">Clean, skin-scent musks layered with soft lavender.</p>
+                    <span class="price">$160.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="perfume-card">
+                <img src="{{ url_for('static', filename='night_jasmine.png') }}" alt="Night Jasmine">
+                <div class="card-content">
+                    <span class="brand">Mr. Kumar Private Blend</span>
+                    <h3>Night Jasmine</h3>
+                    <p class="description">Intoxicating jasmine blooms picked under the moonlight.</p>
+                    <span class="price">$155.00</span>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            {% for perfume in perfumes %}
+                {% if perfume.name not in ['Vanilla Sky', 'Midnight Rose', 'Ocean Breeze', 'Oud Wood', 'Amber Noir', 'Royal Saffron', 'Velvet Iris', 'Citrus Neroli', 'Spiced Tobacco', 'White Patchouli', 'Leather & Dust', 'Sacred Sandalwood', 'Scarlet Cherry', 'Forest Rain', 'Golden Honey', 'Black Orchid', 'Island Coconut', 'Imperial Musk', 'Night Jasmine'] %}
+                <div class="perfume-card">
+                    <img src="{{ perfume.image_url if perfume.image_url else url_for('static', filename='default_perfume.png') }}" alt="{{ perfume.name }}">
+                    <div class="card-content">
+                        <span class="brand">Mr. Kumar Private Blend</span>
+                        <h3>{{ perfume.name }}</h3>
+                        <p class="description">{{ perfume.description }}</p>
+                        <span class="price">${{ "%.2f"|format(perfume.price) }}</span>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="brand-logo" style="margin-bottom: 1rem;">Mr. <span>Kumar</span></div>
+        <p>&copy; 2026 Mr. Kumar Perfumes. Elevating Senses.</p>
+    </footer>
+</body>
+</html>

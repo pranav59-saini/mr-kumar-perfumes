@@ -1,0 +1,309 @@
+/* --- GOOGLE FONTS IMPORT --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* --- VARIABLES & RESET --- */
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F1D479;
+    --dark-bg: #0a0a0a;
+    --dark-card: #141414;
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, .brand-logo {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* --- HEADER & NAV --- */
+header {
+    background-color: rgba(10, 10, 10, 0.95);
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO DESIGN */
+.brand-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.brand-logo span {
+    color: var(--gold);
+}
+
+nav a {
+    color: var(--text-main);
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* --- HERO SECTION (VIDEO) --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0; /* Override default */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    filter: brightness(40%); /* Darken video for text readability */
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 2s ease;
+}
+
+.hero-content h2 {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    background-color: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: var(--gold);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* --- MAIN LAYOUT --- */
+main {
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    min-height: 60vh;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+/* --- GRID & CARDS --- */
+.perfume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.perfume-card {
+    background: var(--dark-card);
+    border: 1px solid #222;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.perfume-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.perfume-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    filter: brightness(90%);
+    transition: 0.4s;
+}
+
+.perfume-card:hover img {
+    filter: brightness(100%);
+}
+
+.card-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.perfume-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.brand {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    display: block;
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- FORMS (Login/Register) --- */
+.form-container {
+    max-width: 450px;
+    margin: 8rem auto 4rem; /* Added top margin for fixed header */
+    padding: 3rem;
+    background: var(--dark-card);
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #000;
+    border: 1px solid #333;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.form-container a {
+    color: var(--gold);
+}
+
+/* --- FLASH MESSAGES --- */
+.flash-messages {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    z-index: 999;
+    text-align: center;
+}
+
+.flash {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--gold);
+    color: #000;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #050505;
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid #222;
+    margin-top: 4rem;
+    color: var(--text-muted);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Mr. Kumar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="{{ url_for('index') }}" class="brand-logo">Mr. <span>Kumar</span></a>
+        </div>
+    </header>
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <main class="form-container">
+        <h2 style="color: var(--gold); margin-bottom: 1.5rem;">Welcome Back</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn" style="width: 100%;">Sign In</button>
+        </form>
+        <p style="text-align: center; margin-top: 1.5rem; color: #888;">
+            New to Mr. Kumar? <a href="{{ url_for('register') }}">Create an account</a>.
+        </p>
+    </main>
+</body>
+</html>
